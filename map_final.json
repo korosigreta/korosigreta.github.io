@@ -335,7 +335,7 @@
         },
         "update": {
           "fill": [
-            {"test": "datum === hover", "value": "red"},
+            {"test": "datum === hover", "value": "lightgreen"},
             {"value": "#ccc"}
           ]
         }
