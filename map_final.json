@@ -265,7 +265,7 @@
     },
     {
       "name": "health_data",
-      "url": "https://raw.githubusercontent.com/korosigreta/korosigreta.github.io/main/Mental%20Health%20Dataset.csv",
+      "url": "https://media.githubusercontent.com/korosigreta/korosigreta.github.io/main/Mental%20Health%20Dataset.csv",
       "format": {"type": "csv", "parse": "auto", "delimiter": ","}
     },
     {
