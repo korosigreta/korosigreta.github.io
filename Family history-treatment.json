@@ -1,0 +1,70 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Family history and treatment correlation in the Mental Health dataset.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/korosigreta/korosigreta.github.io/main/Mental%20Health%20Dataset.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "aggregate": [{"op": "count", "as": "count"}],
+      "groupby": ["family_history", "treatment"]
+    },
+    {
+      "calculate": "datum.family_history + '-' + datum.treatment",
+      "as": "family_treatment"
+    },
+    {
+      "calculate": "datum.family_treatment == 'No-No' ? 'No-No' : ' ' + datum.family_treatment",
+      "as": "adjusted_family_treatment"
+    }
+  ],
+  "facet": {
+    "column": {
+      "field": "adjusted_family_treatment",
+      "type": "nominal",
+      "title": null,
+      "sort": ["No-No", " No-Yes", " Yes-No", " Yes-Yes"],
+      "header": {
+        "labelAngle": 0,
+        "labelAlign": "center",
+        "labelFontWeight": "bold"
+      }
+    }
+  },
+  "spec": {
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "family_treatment",
+        "type": "nominal",
+        "axis": {"title": null, "labels": false}
+      },
+      "y": {
+        "field": "count",
+        "type": "quantitative",
+        "axis": {"title": "Number of Observations"}
+      },
+      "color": {
+        "field": "treatment",
+        "type": "nominal",
+        "legend": {"title": "Treatment"}
+      },
+      "tooltip": [
+        {
+          "field": "family_history",
+          "type": "nominal",
+          "title": "Family History"
+        },
+        {"field": "treatment", "type": "nominal", "title": "Treatment"},
+        {"field": "count", "type": "quantitative", "title": "Count"}
+      ]
+    }
+  },
+  "config": {
+    "facet": {"spacing": 20},
+    "view": {"continuousWidth": 150, "continuousHeight": 400, "stroke": null},
+    "font": "Circular Std",
+    "padding": {"left": 50, "right": 10, "top": 10, "bottom": 10}
+  }
+}

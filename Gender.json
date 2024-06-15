@@ -1,0 +1,35 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Gender distribution in the Mental Health dataset.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/korosigreta/korosigreta.github.io/main/Mental%20Health%20Dataset.csv"
+  },
+  "transform": [
+    {
+      "aggregate": [{"op": "count", "as": "count"}],
+      "groupby": ["Gender"]
+    },
+    {
+      "window": [{"op": "sum", "field": "count", "as": "TotalCount"}],
+      "frame": [null, null]
+    },
+    {
+      "calculate": "datum.count / datum.TotalCount * 100",
+      "as": "Percentage"
+    }
+  ],
+  "mark": {
+    "type": "arc",
+    "tooltip": true
+  },
+  "encoding": {
+    "theta": {"field": "count", "type": "quantitative"},
+    "color": {"field": "Gender", "type": "nominal"},
+    "tooltip": [
+      {"field": "Gender", "type": "nominal"},
+      {"field": "count", "type": "quantitative", "title": "Count"},
+      {"field": "Percentage", "type": "quantitative", "format": ".1f", "title": "Percentage"}
+    ]
+  },
+  "view": {"stroke": null}
+}

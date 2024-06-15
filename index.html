@@ -25,7 +25,7 @@
     <!-- This is a link to a stylesheet which contains rules about how each element on the page should be defined-->
     <!-- Try swapping example1.css to another, and take a look at example1.css to see if you understand it-->
     <link rel="stylesheet" type="text/css" href="s2_example1.css">
-    <title>Tesztoldal</title> <!-- The title displayed in the browser tab, not on the page itself -->
+    <title>Mental Health Dataset</title> <!-- The title displayed in the browser tab, not on the page itself -->
 
     <!-- This is a link to the vega-lite which we're using to make graphs -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -37,12 +37,11 @@
 <!-- The body tag contains the elements that visitors to our page will see. -->
     <h1 class="big" style="margin-bottom: 0px;"> <!-- We have added a class to the header called "big" which we can use to style it in the CSS -->
         <!-- This is a header, it is the largest text on the page -->
-        BI2 - Tesztoldal
-    </h1>
-    <p style="margin-top: 0px; color: darkblue">
+        Mental Health Dataset
+    <p style="margin-top: 0px; color: rgb(11, 93, 156)">
         <!-- we're setting the margin to 0px so the header and authour name are close together -->
-        Your Name | <a href="https://www.linkedin.com/in/finnmcevoy/">LinkedIn</a> | <a
-            href="https://www.github.com/FM-ds">GitHub</a>
+        Kőrösi Gréta-Kinga | <a href="https://www.linkedin.com/in/gr%C3%A9ta-kinga-k%C5%91r%C3%B6si-2128b5258/">LinkedIn</a> | <a
+            href="https://github.com/korosigreta">GitHub</a>
     </p>
     <h3 class="small"> <!-- We have added a class to the header called "small" which we can use to style it in the CSS -->
         This HTML file provides a simple template for a portfolio page. It contains a header, a few sections, and a few charts. This header can act as a summary for your page.
@@ -51,7 +50,7 @@
     <!-- We're organising the page into sections, with each section containing a chart, title and a description -->
     <section>
         <div class="chart-description">
-            <h2>Section 1: A basic chart</h2>
+            <h2>Adatok eloszlása országonként</h2>
             <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
                 We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
                 As a first example, we're using the basic chart from the previous session.
@@ -124,10 +123,10 @@
     <script>
         // This is a comment in JavaScript - it's a different language to HTML and CSS
 
-        var figure_1_spec = "s2_chart1.json"; // We're storing the URL of the graph we want to display in a variable
-        var figure_2_spec = "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/2/s2_chart2.json"
-        var figure_3_spec = "harmas.json";
-        var figure_4_spec = "negyes.json";
+        var figure_1_spec = "map_final.json"; // We're storing the URL of the graph we want to display in a variable
+        var figure_2_spec = "Foglalkoztatottsag.json"
+        var figure_3_spec = "Gender.json";
+        var figure_4_spec = "Family history-treatment.json";
         var figure_5_spec = "Otos.json";
         var figure_6_spec = "hatos.json";
 
