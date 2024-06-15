@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Family history and treatment correlation in the Mental Health dataset.",
   "data": {
-    "url": "https://raw.githubusercontent.com/korosigreta/korosigreta.github.io/main/Mental%20Health%20Dataset.csv",
+    "url": "https://media.githubusercontent.com/media/korosigreta/korosigreta.github.io/main/Mental%20Health%20Dataset.csv",
     "format": {"type": "csv"}
   },
   "transform": [

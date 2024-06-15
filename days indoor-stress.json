@@ -1,0 +1,90 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Relationship between Days Indoors and Growing Stress.",
+  "data": {
+    "url": "https://media.githubusercontent.com/media/korosigreta/korosigreta.github.io/main/Mental%20Health%20Dataset.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {"filter": "datum.Growing_Stress != null && datum.Days_Indoors != null"},
+    {
+      "calculate": "datum.Days_Indoors == '1-14 days' ? 7 : datum.Days_Indoors == '15-30 days' ? 22 : datum.Days_Indoors == '31-60 days' ? 45 : datum.Days_Indoors == 'Go out Every day' ? 0 : datum.Days_Indoors == 'More than 2 months' ? 60 : null",
+      "as": "Days_Indoors_Num"
+    },
+    {
+      "calculate": "datum.Growing_Stress == 'Yes' ? 1 : 0",
+      "as": "Growing_Stress_Binary"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "mean",
+          "field": "Growing_Stress_Binary",
+          "as": "Average_Growing_Stress"
+        }
+      ],
+      "groupby": ["Days_Indoors_Num"]
+    }
+  ],
+  "width": 600,
+  "height": 400,
+  "mark": {"type": "bar", "align": "center", "tooltip": true, "size": 40},
+  "encoding": {
+    "x": {
+      "field": "Days_Indoors_Num",
+      "type": "quantitative",
+      "title": "Days Indoors",
+      "axis": {
+        "format": "d",
+        "labelColor": "#333333",
+        "titleColor": "#333333",
+        "tickColor": "#333333",
+        "gridColor": "#e0e0e0"
+      }
+    },
+    "y": {
+      "field": "Average_Growing_Stress",
+      "type": "quantitative",
+      "title": "Average Growing Stress",
+      "axis": {
+        "labelColor": "#333333",
+        "titleColor": "#333333",
+        "tickColor": "#333333",
+        "gridColor": "#e0e0e0"
+      }
+    },
+    "color": {
+      "field": "Days_Indoors_Num",
+      "type": "quantitative",
+      "legend": {
+        "title": "Days Indoors",
+        "labelColor": "#333333",
+        "titleColor": "#333333"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "Days_Indoors_Num",
+        "type": "quantitative",
+        "title": "Days Indoors"
+      },
+      {
+        "field": "Average_Growing_Stress",
+        "type": "quantitative",
+        "title": "Average Growing Stress"
+      }
+    ]
+  },
+  "config": {
+    "background": "#ffffff",
+    "axis": {
+      "domainColor": "#333333",
+      "gridColor": "#e0e0e0",
+      "tickColor": "#333333",
+      "titleColor": "#333333",
+      "labelColor": "#333333"
+    },
+    "title": {"color": "#333333", "fontSize": 14, "fontWeight": 400},
+    "view": {"stroke": "transparent", "align": "center"}
+  }
+}

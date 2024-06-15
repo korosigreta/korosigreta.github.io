@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Oszlopdiagram az egyes foglalkozások megfigyeléseinek számával.",
   "data": {
-    "url": "https://raw.githubusercontent.com/korosigreta/korosigreta.github.io/main/Mental%20Health%20Dataset.csv",
+    "url": "https://media.githubusercontent.com/media/korosigreta/korosigreta.github.io/main/Mental%20Health%20Dataset.csv",
     "format": {"type": "csv"}
   },
   "width": 1000,
