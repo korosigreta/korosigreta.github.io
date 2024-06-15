@@ -122,6 +122,38 @@ section {
   padding-top: 30px; /* Ez az érték állítható a navigációs sáv magasságának megfelelően */
 }
 
+ /* Loading indicator */
+ #loading-indicator {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: #065f46;
+  display: flex;
+  align-items: center;
+}
+
+/* Animated spinner */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #065f46;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
 /* Animációk definiálása */
 @keyframes fadeInUp {
   from {
