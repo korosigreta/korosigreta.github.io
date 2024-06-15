@@ -24,7 +24,7 @@
 
     <!-- This is a link to a stylesheet which contains rules about how each element on the page should be defined-->
     <!-- Try swapping example1.css to another, and take a look at example1.css to see if you understand it-->
-    <link rel="stylesheet" type="text/css" href="s2_example1.css">
+    <link rel="stylesheet" href="style.css">
     <title>Mental Health Dataset</title> <!-- The title displayed in the browser tab, not on the page itself -->
 
     <!-- This is a link to the vega-lite which we're using to make graphs -->
@@ -34,6 +34,15 @@
 </head>
 
 <body> 
+    <nav>
+        <a href="#Section1">Section 1</a>
+        <a href="#Section2">Section 2</a>
+        <a href="#Section3">Section 3</a>
+        <a href="#Section4">Section 4</a>
+        <a href="#Section5">Section 5</a>
+        <a href="#Section6">Section 6</a>
+      </nav>
+
 <!-- The body tag contains the elements that visitors to our page will see. -->
     <h1 class="big" style="margin-bottom: 0px;"> <!-- We have added a class to the header called "big" which we can use to style it in the CSS -->
         <!-- This is a header, it is the largest text on the page -->
@@ -48,8 +57,8 @@
     </h3>
 
     <!-- We're organising the page into sections, with each section containing a chart, title and a description -->
-    <section>
-        <div class="chart-description">
+    <section id="Section1">
+        <div class="reveal">
             <h2>Adatok eloszlása országonként</h2>
             <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
                 We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
@@ -59,9 +68,9 @@
         <figure id="Location1"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
     </section>
 
-    <section>
-        <div class="chart-description"> <!-- we are grouping the title and description together so we can style them together -->
-            <h2>Section 2: Another Chart</h2>
+    <section id="Section2">
+        <div class="reveal"> <!-- we are grouping the title and description together so we can style them together -->
+            <h2 id="Header2">Section 2: Another Chart</h2>
             <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
                 This is a more advanced chart. We'll cover charts like this in more detail later today. Don't worry if you don't understand it yet.
                 Feel free to replace both charts with your own examples.
@@ -70,8 +79,8 @@
         <figure id="Location2"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
     </section>
 
-    <section>
-        <div class="chart-description"> <!-- we are grouping the title and description together so we can style them together -->
+    <section id="Section3">
+        <div class="reveal"> <!-- we are grouping the title and description together so we can style them together -->
             <h2>Section 3: Harmas</h2>
             <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
                 This is a more advanced chart. We'll cover charts like this in more detail later today. Don't worry if you don't understand it yet.
@@ -81,8 +90,8 @@
         <figure id="Location3"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
     </section>
 
-    <section>
-        <div class="chart-description"> <!-- we are grouping the title and description together so we can style them together -->
+    <section id="Section4">
+        <div class="reveal"> <!-- we are grouping the title and description together so we can style them together -->
             <h2>Section 4: Negyes</h2>
             <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
                 This is a more advanced chart. We'll cover charts like this in more detail later today. Don't worry if you don't understand it yet.
@@ -92,8 +101,8 @@
         <figure id="Location4"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
     </section>
 
-    <section>
-        <div class="chart-description"> <!-- we are grouping the title and description together so we can style them together -->
+    <section id="Section5">
+        <div class="reveal"> <!-- we are grouping the title and description together so we can style them together -->
             <h2>Section 5: Otos</h2>
             <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
                 This is a more advanced chart. We'll cover charts like this in more detail later today. Don't worry if you don't understand it yet.
@@ -103,9 +112,9 @@
         <figure id="Location5"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
     </section>
 
-    <section>
-        <div class="chart-description"> <!-- we are grouping the title and description together so we can style them together -->
-            <h2>Section 5: Hatos</h2>
+    <section id="Section6">
+        <div class="reveal"> <!-- we are grouping the title and description together so we can style them together -->
+            <h2>Section 6: Hatos</h2>
             <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
                 This is a more advanced chart. We'll cover charts like this in more detail later today. Don't worry if you don't understand it yet.
                 Feel free to replace both charts with your own examples.
@@ -146,6 +155,7 @@
         // vegaEmbed('#Location3', figure_3_spec)
 
     </script>
+    <script src="script.js"></script>
 
 </body>
     
