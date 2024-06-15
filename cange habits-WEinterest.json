@@ -1,0 +1,65 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Effect of Changes in Habits on Work Interest",
+  "data": {
+    "url": "https://media.githubusercontent.com/media/korosigreta/korosigreta.github.io/main/Mental%20Health%20Dataset.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {"filter": "datum.Changes_Habits != null && datum.Work_Interest != null"},
+    {
+      "calculate": "datum.Work_Interest == 'Yes' ? 1 : 0",
+      "as": "Work_Interest_Binary"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "mean",
+          "field": "Work_Interest_Binary",
+          "as": "Average_Work_Interest"
+        }
+      ],
+      "groupby": ["Changes_Habits"]
+    }
+  ],
+  "mark": {"type": "bar", "size": 40},
+  "encoding": {
+    "x": {
+      "field": "Changes_Habits",
+      "type": "nominal",
+      "title": "Changes in Habits",
+      "axis": {"labelColor": "#2a5a29", "titleColor": "#2a5a29"}
+    },
+    "y": {
+      "field": "Average_Work_Interest",
+      "type": "quantitative",
+      "title": "Average Work Interest",
+      "axis": {"labelColor": "#2a5a29", "titleColor": "#2a5a29"}
+    },
+    "color": {"value": "#4caf50"},
+    "tooltip": [
+      {
+        "field": "Changes_Habits",
+        "type": "nominal",
+        "title": "Changes in Habits"
+      },
+      {
+        "field": "Average_Work_Interest",
+        "type": "quantitative",
+        "title": "Average Work Interest"
+      }
+    ]
+  },
+  "config": {
+    "background": "#ffffff",
+    "axis": {
+      "domainColor": "#2a5a29",
+      "gridColor": "#c8e6c9",
+      "tickColor": "#2a5a29",
+      "titleColor": "#2a5a29",
+      "labelColor": "#2a5a29"
+    },
+    "title": {"color": "#2a5a29", "fontSize": 14, "fontWeight": 400},
+    "view": {"stroke": "transparent", "width": 600, "height": 400}
+  }
+}
